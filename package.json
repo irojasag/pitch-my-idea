@@ -7,6 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "ng serve",
+    "dev": "concurrently --kill-others-on-fail \"ng run api:serve\" \"ng run client:serve --host=0.0.0.0\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
@@ -29,7 +30,6 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/angular": "^9.4.5",
     "@angular/animations": "^9.1.0",
     "@angular/common": "^9.1.0",
     "@angular/compiler": "^9.1.0",
@@ -38,8 +38,14 @@
     "@angular/platform-browser": "^9.1.0",
     "@angular/platform-browser-dynamic": "^9.1.0",
     "@angular/router": "^9.1.0",
+    "@nrwl/angular": "^9.4.5",
     "rxjs": "~6.5.4",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.2",
+    "@nestjs/common": "^6.8.3",
+    "@nestjs/core": "^6.8.3",
+    "@nestjs/platform-express": "^6.8.3",
+    "reflect-metadata": "^0.1.13",
+    "concurrently": "^5.0.0"
   },
   "devDependencies": {
     "@angular/cli": "9.1.0",
@@ -61,6 +67,10 @@
     "@types/jest": "25.1.4",
     "ts-jest": "25.2.1",
     "cypress": "^4.1.0",
-    "@nrwl/cypress": "9.4.5"
+    "@nrwl/cypress": "9.4.5",
+    "@nrwl/node": "9.4.5",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.8.3",
+    "@nrwl/nest": "9.4.5"
   }
 }
